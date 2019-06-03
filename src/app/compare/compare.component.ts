@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { AllPokemonService } from '../all-pokemon.service';
+
 
 @Component({
   selector: 'app-compare',
@@ -6,10 +8,13 @@ import { Component, OnInit, ViewEncapsulation} from '@angular/core';
   styleUrls: ['./compare.component.css'],
 })
 export class CompareComponent implements OnInit {
+  pokemons:any;
 
-  constructor() { }
+  constructor(public allPokemonService: AllPokemonService) { }
 
   ngOnInit() {
+  	this.pokemons = this.allPokemonService.getPokemonList();
+  	console.log(this.pokemons);
   }
 
 }

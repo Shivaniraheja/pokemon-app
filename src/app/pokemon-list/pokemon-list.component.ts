@@ -23,7 +23,9 @@ export class PokemonListComponent implements OnInit {
         {
           this.pokemons = pokemons.results
           console.log(this.pokemons);
+          this.allPokemonService.setPokemonList(this.pokemons);
         });
+
   }
 
   toggleFav(pokemon){

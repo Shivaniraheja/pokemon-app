@@ -9,6 +9,7 @@ import { Pokemon } from './pokemon';
 })
 export class AllPokemonService {
 pokemon : any=[]
+pokemonList: any
 listUrl : string = 'https://pokeapi.co/api/v2/pokemon/'
 url :string;
 stats:any;
@@ -30,6 +31,12 @@ stats:any;
   	return this.http.get(this.url)
   .pipe(map((response: any) => response));
 
+  }
+  setPokemonList(pokemonList){
+    this.pokemonList=pokemonList;
+  }
+  getPokemonList(){
+    return this.pokemonList;
   }
 
 }

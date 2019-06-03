@@ -1,9 +1,34 @@
 <div class="container">
-	Drag and drop pokemons to compare
-	<button>Compare</button>
-</div>
-<div class="list">
-	<app-pokemon-list>
-		
-	</app-pokemon-list>
+	
+<div class="row">
+
+	<div class="col-sm-6 list">
+		<div *ngFor="let pokemon of pokemons index as i" >
+			<div class="card card-align " cdkDrag >
+		        <div class="card-body">
+		        	<h5 class="card-title">{{pokemon.name| titlecase}}</h5>
+		          <img class="img-layout" *ngIf="i < 9" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/00{{i+1}}.png"/>
+		          <img class="img-layout" *ngIf="i >= 9" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/0{{i+1}}.png"/>
+		        </div>
+	      </div> 
+		</div>
 	</div>
+
+	<div class="col-sm-6 compare-box border">
+		<div class="row box-title">
+		 <h5>Drag and drop pokemons to compare</h5>
+		</div>
+		<div class="row box ">
+		 	<div class="col-sm-6 card">
+		 		
+		 	</div>
+		 	<div class="col-sm-6 card">
+		 		
+		 	</div>
+
+		</div>
+		<button class="btn btn-primary btn-lg btn-block">Compare</button>
+	</div>
+
+</div>
+</div>
