@@ -1,0 +1,23 @@
+.list-align{
+	display: flex;
+  	flex-flow: row wrap;
+  	justify-content: center;
+	
+}
+
+.material-icons{
+	cursor: pointer;
+}
+
+.card-align{
+	position: relative;
+	border-radius: 3px;
+	display: inline-block;
+	margin-top: 20px;
+	width: 500px;
+	
+}
+.card-title{
+	text-align: center;
+  	font-size: 24px;
+}
