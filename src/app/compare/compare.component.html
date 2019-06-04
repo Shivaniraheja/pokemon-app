@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" *ngIf="!showCompare">
 	
 <div class="row">
 
 	<div class="col-sm-6 list">
 		<div *ngFor="let pokemon of pokemons index as i" (cdkDropListDropped)="drop($event)">
-			<div class="card card-align " cdkDrag  >
+			<div class="card card-align " cdkDrag (cdkDragEnded)="dragEnd($event,pokemon)" >
 		        <div class="card-body">
 		        	<h5 class="card-title">{{pokemon.name| titlecase}}</h5>
 		          <img class="img-layout" *ngIf="i < 9" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/00{{i+1}}.png"/>
@@ -14,9 +14,9 @@
 		</div>
 	</div>
 
-	<div class="col-sm-6 compare-box border" >
+	<div class="col-sm-6 compare-box border" cdkDrop (cdkDropDropped)="dropped($event)">
 		<div class="row box-title">
-		 <h5>Drag and drop pokemons to compare</h5>
+		 <h5>Drag and drop 2 pokemons to compare</h5>
 		</div>
 		<div class="row box ">
 		 	<div class="col-sm-6 card">
@@ -27,8 +27,41 @@
 		 	</div>
 
 		</div>
-		<button class="btn btn-primary btn-lg btn-block">Compare</button>
+		<button class="btn btn-primary btn-lg btn-block" (click)="compareStats()">Compare</button>
 	</div>
 
 </div>
+</div>
+
+<div class="compare-layout" *ngIf="showCompare">
+	<div class="row">
+		<div class="col-sm-6">
+		
+			<div class="card " >
+		        <div class="card-body">
+		        	<h5 class="card-title">{{(pokemon.name| titlecase)}}</h5>
+		          <img *ngIf= "pokemon.id<= 9" class="img-align" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/00{{pokemon.id}}.png" />
+		          <img *ngIf= "pokemon.id>9"class="img-align" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/0{{pokemon.id}}.png" />
+		          <h5 class="card-title">{{nextPokemon.name| titlecase}}</h5>
+		          <img *ngIf= "nextPokemon.id<= 9" class="img-align" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/00{{nextPokemon.id}}.png" />
+		          <img *ngIf= "nextPokemon.id> 9" class="img-align" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/0{{nextPokemon.id}}.png" />
+		        </div>
+	      </div> 
+		
+	</div>
+	<div class="col-sm-6 " >
+		
+		 <h5>Height</h5>
+		 <div style="display: block">
+  			<canvas id="hCanvas">{{ barHeightChart }}</canvas>
+ 		 </div>
+		
+		<h5>Weight</h5>
+		<div style="display: block">
+  			<canvas id="wCanvas">{{ barWeightChart }}</canvas>
+  		</div>
+		
+		
+	</div>
+	</div>
 </div>
