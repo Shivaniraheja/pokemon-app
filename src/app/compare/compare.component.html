@@ -3,8 +3,8 @@
 <div class="row">
 
 	<div class="col-sm-6 list">
-		<div *ngFor="let pokemon of pokemons index as i" >
-			<div class="card card-align " cdkDrag >
+		<div *ngFor="let pokemon of pokemons index as i" (cdkDropListDropped)="drop($event)">
+			<div class="card card-align " cdkDrag  >
 		        <div class="card-body">
 		        	<h5 class="card-title">{{pokemon.name| titlecase}}</h5>
 		          <img class="img-layout" *ngIf="i < 9" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/00{{i+1}}.png"/>
@@ -14,7 +14,7 @@
 		</div>
 	</div>
 
-	<div class="col-sm-6 compare-box border">
+	<div class="col-sm-6 compare-box border" >
 		<div class="row box-title">
 		 <h5>Drag and drop pokemons to compare</h5>
 		</div>

@@ -16,5 +16,8 @@ export class CompareComponent implements OnInit {
   	this.pokemons = this.allPokemonService.getPokemonList();
   	console.log(this.pokemons);
   }
+  drop(event){
+  	console.log('the dropped pokemon is');
+  }
 
 }

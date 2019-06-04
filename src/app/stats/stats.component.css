@@ -1,0 +1,9 @@
+.stats-layout{
+	display: flex;
+  	flex-flow: row wrap;
+  	justify-content: center;
+}
+.card{
+	width:45%;
+	display: inline-block;
+}

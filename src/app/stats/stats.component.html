@@ -1,3 +1,45 @@
-<p>
-  stats works!
-</p>
+<div class="stats-layout">
+<div class="card col-sm-6">
+  <img  src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/00{{details.id}}.png" />
+  <div class="card-body">
+    <h5 class="card-title">{{details.name| titlecase}}</h5>
+    <p>Base Experience {{details.base_experience}}</p>
+
+    <ul class="list-group list-group-horizontal">
+    	<li class="list-group-item">Abilities</li>
+    <div *ngFor="let ability of abilities index as i" >
+  		
+  		<li class="list-group-item">{{ability.ability.name| titlecase}}</li>
+
+
+	</div>
+	</ul>
+	<ul class="list-group list-group-horizontal">
+    	<li class="list-group-item">Types</li>
+    <div *ngFor="let type of types index as i" >
+  		
+  		<li class="list-group-item">{{type.type.name| titlecase}}</li>
+
+
+	</div>
+	</ul>
+	
+  </div>
+</div>
+<div class="card col-sm-6">
+  <div class="card-body">
+   
+  <div>
+  	<div style="display: block">
+  <canvas id="bar">{{ barChart }}</canvas>
+  </div>
+  <h5>Statistics</h5>
+  <div style="display: block">
+  <canvas id="canvas">{{ chart }}</canvas>
+  </div>
+</div>
+  </div>
+</div>
+
+</div>
+
