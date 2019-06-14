@@ -39,12 +39,12 @@
 		
 			<div class="card " >
 		        <div class="card-body">
-		        	<h5 class="card-title">{{(pokemon.name| titlecase)}}</h5>
-		          <img *ngIf= "pokemon.id<= 9" class="img-align" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/00{{pokemon.id}}.png" />
-		          <img *ngIf= "pokemon.id>9"class="img-align" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/0{{pokemon.id}}.png" />
-		          <h5 class="card-title">{{nextPokemon.name| titlecase}}</h5>
-		          <img *ngIf= "nextPokemon.id<= 9" class="img-align" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/00{{nextPokemon.id}}.png" />
-		          <img *ngIf= "nextPokemon.id> 9" class="img-align" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/0{{nextPokemon.id}}.png" />
+		        	<h5 class="card-title">{{(pokemonData1.name| titlecase)}}</h5>
+		          <img *ngIf= "pokemonData1.id<= 9" class="img-align" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/00{{pokemonData1.id}}.png" />
+		          <img *ngIf= "pokemonData1.id>9"class="img-align" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/0{{pokemonData1.id}}.png" />
+		          <h5 class="card-title">{{pokemonData1.name| titlecase}}</h5>
+		          <img *ngIf= "pokemonData2.id<= 9" class="img-align" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/00{{pokemonData2.id}}.png" />
+		          <img *ngIf= "pokemonData2.id> 9" class="img-align" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/0{{pokemonData2.id}}.png" />
 		        </div>
 	      </div> 
 		

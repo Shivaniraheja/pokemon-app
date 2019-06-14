@@ -14,8 +14,8 @@ export class CompareComponent implements OnInit {
   pokemons:any;
   compareList:any =[];
   showCompare:boolean = false;
-  pokemon:any;
-  nextPokemon:any;
+  pokemonData1:any;
+  pokemonData2:any;
   details:any;
   compareHeight:any=[];
   compareWeight:any=[];
@@ -38,51 +38,26 @@ export class CompareComponent implements OnInit {
   	if(this.compareList.length>0){
   		this.showCompare= true;
   		// get stats for both pokemons
-  		this.allPokemonService.getStats(this.compareList[0].url).subscribe( details => 
+  		this.allPokemonService.compareData(this.compareList[0].url,this.compareList[1].url).subscribe( details => 
         {
-          this.pokemon = details;
-          this.addToCompareData(this.pokemon.weight,1,'w');
-          this.addToCompareData(this.pokemon.height,1,'h');
-
-        });
-
-  		this.allPokemonService.getStats(this.compareList[1].url).subscribe( details => 
-        {
-          this.nextPokemon = details;
-          this.addToCompareData(this.nextPokemon.weight,2,'w');
-          this.addToCompareData(this.nextPokemon.height,2,'h');
+            this.pokemonData1 = details[0];
+            this.pokemonData2 = details[1];
+          this.drawHeightChart(this.pokemonData1.weight,this.pokemonData2.weight,this.pokemonData1.name,this.pokemonData2.name);
+          this.drawWeightChart(this.pokemonData1.height,this.pokemonData2.height,this.pokemonData1.name,this.pokemonData2.name);
 
         });
 		}
   }
 
-  addToCompareData(data,i,type){
-  	if(type=='w'){
-  		this.compareWeight.push(data);
-  		if(i==2){
-  			//draw weight chart
-  			this.drawWeightChart(this.compareWeight);
-          
-  		}
-  	}
-  	if(type=='h'){
-  		this.compareHeight.push(data);
-  		if(i==2){
-  			//draw height chart
-  			this.drawHeightChart(this.compareHeight);
-
-  		}
-  	}
-
-  }
-  drawHeightChart(data){
+  
+  drawHeightChart(data1,data2,name1,name2){
   	this.barHeightChart = new Chart('hCanvas', {
           type: 'bar',
           data: {
-            labels: ["1","2"],
+            labels: [name1,name2],
             datasets: [
               { 
-                data: data
+                data: [data1,data2]
               }
             ]
           },
@@ -94,14 +69,14 @@ export class CompareComponent implements OnInit {
         });
 
   }
-  drawWeightChart(data){
+  drawWeightChart(data1,data2,name1,name2){
   	this.barWeightChart = new Chart('wCanvas', {
           type: 'bar',
           data: {
-            labels: ["1","2"],
+            labels: [name1,name2],
             datasets: [
               { 
-                data: data
+                data: [data1,data2]
               }
             ]
           },
