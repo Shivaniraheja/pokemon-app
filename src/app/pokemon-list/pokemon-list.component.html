@@ -1,3 +1,4 @@
+<div class="full-background">
 <div *ngIf = "!showStats" class="container">
   <div class="list-align">
     <div *ngFor="let pokemon of pokemons index as i" >
@@ -10,7 +11,7 @@
           <h5 class="card-title">{{pokemon.name| titlecase}}</h5>
           <img *ngIf="i < 9" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/00{{i+1}}.png" />
           <img *ngIf="i >= 9" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/0{{i+1}}.png"/>
-          <button class="btn btn-primary" (click)="getStats(pokemon)">Stats</button>
+          <button class="btn btn-outline-warning" (click)="getStats(pokemon)">Stats</button>
         </div>
       </div> 
 
@@ -21,3 +22,4 @@
 
 <app-stats *ngIf="showStats"></app-stats>
 
+</div>

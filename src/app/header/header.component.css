@@ -1,0 +1,15 @@
+.bg-red {
+    background-color: red;
+}
+.navbar-light .navbar-brand {
+    color: #fff;
+}
+.active .nav-link{
+	color: #fff;
+}
+.navbar-light .navbar-brand:hover {
+    color: yellow;
+}
+.active .nav-link:hover{
+	color: yellow;
+}
